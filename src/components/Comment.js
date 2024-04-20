@@ -124,7 +124,7 @@ const Comment = ({ comment, currentUser, commentsData, setCommentsData }) => {
           ) : (
             <button onClick={() => toggleReply()} className="reply-button">
               <img src="./images/icon-reply.svg" alt="reply button" />
-              <p>reply</p>
+              <p>Reply</p>
             </button>
           )}
           {editOpen && (
