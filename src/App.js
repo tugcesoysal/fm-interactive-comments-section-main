@@ -5,7 +5,7 @@ import SendComment from "./components/SendComment";
 import data from "./data.json";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(data.currentUser);
+  const currentUser = data.currentUser;
   const [commentsData, setCommentsData] = useState(data.comments);
 
   return (
