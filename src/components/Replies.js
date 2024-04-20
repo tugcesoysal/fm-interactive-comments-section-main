@@ -200,7 +200,6 @@ const Replies = ({
                 <div className="send-comment card">
                   <textarea
                     placeholder="Add a comment..."
-                    value={reply.content}
                     onChange={(e) => setReplyContent(e.target.value)}
                   ></textarea>
                   <div className="card-footer">
@@ -213,7 +212,7 @@ const Replies = ({
                       onClick={() => sendReply(reply)}
                       className="send-button"
                     >
-                      reply
+                      Reply
                     </button>
                   </div>
                 </div>
