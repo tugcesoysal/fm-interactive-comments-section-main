@@ -1,0 +1,217 @@
+@import "utilities";
+
+.card {
+  margin: 1.5em;
+  padding: 1em;
+  background-color: $card-bg;
+  border-radius: 5px;
+  min-height: 150px;
+}
+
+.card-header,
+.card-footer,
+.count-button-div,
+.reply-button,
+.delete-button,
+.edit-button {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar img {
+  width: 2em;
+}
+
+.username {
+  color: $username;
+  font-weight: $medium;
+  margin-left: 1em;
+}
+
+.you {
+  margin-left: 0.5em;
+  background-color: $button;
+  color: white;
+  padding: 0 0.5em;
+}
+
+.createdAt {
+  margin-left: 1em;
+}
+
+.content {
+  margin: 1em 0;
+}
+
+.count-button-div {
+  background-color: $count-button-bg;
+  padding: 0.5em;
+  border-radius: 5px;
+
+  button {
+    background-color: transparent;
+  }
+}
+
+.minus-btn {
+  margin-bottom: 4px;
+}
+
+.count {
+  color: $button;
+  font-weight: $medium;
+  margin: 0 1em;
+}
+
+.reply-button {
+  margin-left: auto;
+  background-color: transparent;
+
+  p {
+    color: $button;
+    font-weight: $bold;
+    margin-left: 0.5em;
+  }
+}
+
+.reply-button:hover {
+  opacity: 0.4;
+}
+
+// Reply
+
+.replies {
+  margin-left: 1.5em;
+  border-left: 3px solid $line;
+}
+
+.replyingTo {
+  font-weight: $medium;
+  color: $replyingTo;
+  margin-right: 0.4em;
+}
+
+.delete-button {
+  margin-left: auto;
+
+  p {
+    color: $delete-btn;
+    font-weight: bold;
+    margin-left: 0.5em;
+  }
+
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+.edit-button {
+  margin-left: 1em;
+
+  p {
+    color: $button;
+    font-weight: bold;
+    margin-left: 0.5em;
+  }
+
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+.update-button {
+  display: block;
+  margin-top: 1em;
+  margin-left: auto;
+  background-color: $button;
+  color: $button-text;
+  text-transform: uppercase;
+  font-weight: $bold;
+  padding: 1em 2em;
+  border-radius: 8px;
+
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+.edit-textarea {
+  padding: 1em;
+  border: 1px solid $button;
+
+  outline: none;
+  width: 100%;
+  height: 8em;
+  border-radius: 5px;
+  text-align: left;
+  font-family: "Rubik", sans-serif;
+  color: $text;
+  font-size: 16px;
+  resize: none;
+  cursor: pointer;
+  position: relative;
+
+  &::placeholder {
+    color: $text;
+    font-weight: $light;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
+
+  &:focus {
+    border: 1px solid $button;
+  }
+}
+
+@media (min-width: 900px) {
+  .App {
+    max-width: 900px;
+    margin: 4em auto;
+  }
+
+  .card {
+    padding: 2em 0;
+    padding-left: 7em;
+    padding-right: 2em;
+    position: relative;
+  }
+
+  .replies .card {
+    max-width: 750px;
+    margin-left: auto;
+  }
+
+  .replies {
+    margin-left: 4.5em;
+  }
+
+  .count-button-div {
+    flex-direction: column;
+    position: absolute;
+    top: 2em;
+    left: 1.5em;
+
+    button {
+      margin: 0.5em auto;
+    }
+  }
+
+  .reply-button {
+    position: absolute;
+    top: 3em;
+    right: 3em;
+  }
+
+  .delete-button {
+    position: absolute;
+    top: 3em;
+    right: 8em;
+  }
+
+  .edit-button {
+    position: absolute;
+    top: 3em;
+    right: 3em;
+  }
+}

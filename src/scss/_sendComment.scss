@@ -1,0 +1,51 @@
+@import "utilities";
+
+.send-comment {
+  textarea {
+    padding: 1em;
+    border: 1px solid $line;
+    outline: none;
+    width: 100%;
+    height: 8em;
+    border-radius: 5px;
+    text-align: left;
+    font-family: "Rubik", sans-serif;
+    color: $text;
+    font-size: 16px;
+    resize: none;
+    cursor: pointer;
+    position: relative;
+
+    &::placeholder {
+      color: $text;
+      font-weight: $light;
+      position: absolute;
+      top: 1em;
+      left: 1em;
+    }
+
+    &:focus {
+      border: 1px solid $button;
+    }
+  }
+}
+
+.current-avatar {
+  width: 2em;
+}
+
+.send-button {
+  display: block;
+  margin-top: 1em;
+  margin-left: auto;
+  background-color: $button;
+  color: $button-text;
+  text-transform: uppercase;
+  font-weight: $bold;
+  padding: 1em 2em;
+  border-radius: 8px;
+
+  &:hover {
+    opacity: 0.4;
+  }
+}
