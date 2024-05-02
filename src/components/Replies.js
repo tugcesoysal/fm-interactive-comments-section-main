@@ -19,6 +19,7 @@ const Replies = ({
   const [openReplyID, setOpenReplyID] = useState(null);
   const [editingReplyID, setEditingReplyID] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [votedReplies, setVotedReplies] = useState([]);
 
   const deleteReply = (replyID) => {
     const updatedComments = commentsData.map((comment) => ({
@@ -40,7 +41,13 @@ const Replies = ({
     }
   };
 
-  const upvote = (commentID, replyID) => {
+  const upvote = (commentID, replyID, reply) => {
+    if (
+      votedReplies.includes(replyID) ||
+      currentUser.username === reply.user.username
+    ) {
+      return;
+    }
     const updatedComments = commentsData.map((c) =>
       c.id === commentID
         ? {
@@ -53,9 +60,16 @@ const Replies = ({
     );
 
     setCommentsData(updatedComments);
+    setVotedReplies([...votedReplies, replyID]);
   };
 
-  const downvote = (commentID, replyID) => {
+  const downvote = (commentID, replyID, reply) => {
+    if (
+      votedReplies.includes(replyID) ||
+      currentUser.username === reply.user.username
+    ) {
+      return;
+    }
     const updatedComments = commentsData.map((c) =>
       c.id === commentID
         ? {
@@ -66,7 +80,7 @@ const Replies = ({
           }
         : c,
     );
-
+    setVotedReplies([...votedReplies, replyID]);
     setCommentsData(updatedComments);
   };
 
@@ -111,8 +125,8 @@ const Replies = ({
           const { id, user, createdAt, content, score, replyingTo } = reply;
 
           return (
-            <>
-              <div key={id} className="card">
+            <div key={id}>
+              <div className="card">
                 <div className="card-header">
                   <div className="user-avatar">
                     <img src={user.image.png} alt={user.username} />
@@ -137,7 +151,7 @@ const Replies = ({
                 </p>
                 <div className="card-footer">
                   <div className="count-button-div">
-                    <button onClick={() => upvote(comment.id, reply.id)}>
+                    <button onClick={() => upvote(comment.id, reply.id, reply)}>
                       <img
                         src="./images/icon-plus.svg"
                         alt="plus count button"
@@ -145,7 +159,7 @@ const Replies = ({
                     </button>
                     <p className="count">{score}</p>
                     <button
-                      onClick={() => downvote(comment.id, reply.id)}
+                      onClick={() => downvote(comment.id, reply.id, reply)}
                       className="minus-btn"
                     >
                       <img
@@ -224,7 +238,7 @@ const Replies = ({
                   setModalOpen={setModalOpen}
                 />
               )}
-            </>
+            </div>
           );
         })}
       </div>

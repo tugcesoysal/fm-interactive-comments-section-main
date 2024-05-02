@@ -4,15 +4,13 @@ const CommentList = ({ currentUser, commentsData, setCommentsData }) => {
   return (
     <>
       {commentsData.map((comment) => (
-        <>
-          <Comment
-            key={comment.id}
-            comment={comment}
-            currentUser={currentUser}
-            commentsData={commentsData}
-            setCommentsData={setCommentsData}
-          />
-        </>
+        <Comment
+          key={comment.id}
+          comment={comment}
+          currentUser={currentUser}
+          commentsData={commentsData}
+          setCommentsData={setCommentsData}
+        />
       ))}
     </>
   );

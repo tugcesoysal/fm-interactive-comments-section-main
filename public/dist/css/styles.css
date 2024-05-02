@@ -21,11 +21,11 @@ p {
 button {
   border: none;
   background-color: transparent;
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 button:hover {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .card {
@@ -128,7 +128,7 @@ button:hover {
 }
 
 .edit-button {
-  margin-left: 1em;
+  margin-left: 2em;
 }
 .edit-button p {
   color: hsl(238, 40%, 52%);
@@ -184,6 +184,7 @@ button:hover {
   .App {
     max-width: 900px;
     margin: 4em auto;
+    height: 100vh;
   }
   .card {
     padding: 2em 0;

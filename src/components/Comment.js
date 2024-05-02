@@ -32,16 +32,31 @@ const Comment = ({ comment, currentUser, commentsData, setCommentsData }) => {
   };
 
   const upvote = (commentID) => {
+    if (
+      currentUser.votedComments.includes(commentID) ||
+      currentUser.username === comment.user.username
+    ) {
+      return;
+    }
     const updated = commentsData.map((c) =>
       c.id === commentID ? { ...c, score: c.score + 1 } : c,
     );
+    currentUser.votedComments.push(commentID);
     setCommentsData(updated);
   };
 
   const downvote = (commentID) => {
+    if (
+      currentUser.votedComments.includes(commentID) ||
+      currentUser.username === comment.user.username
+    ) {
+      return;
+    }
     const updated = commentsData.map((c) =>
       c.id === commentID ? { ...c, score: Math.max(0, c.score - 1) } : c,
     );
+    currentUser.votedComments.push(commentID);
+
     setCommentsData(updated);
   };
 
